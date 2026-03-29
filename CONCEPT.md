@@ -137,3 +137,6 @@ A small set of automated checks will be run after each module to catch silent er
 
 ## Updated Pitfall and Risk Log
 Most risks from the original proposal remain relevant and are addressed by the pipeline design. Patient overlap is handled by taking the intersection of all four datasets before any analysis begins. High dimensionality is managed by filtering to the top 500 genes and 10,000 CpG sites. The risk that RNA already captures everything is real, but is treated as a valid scientific outcome rather than a failure. Additionally, running on a MacBook M4 with 16GB RAM is a practical constraint worth acknowledging. The mitigations built into the pipeline, such as the aggressive site filtering, training on a patient subsample, and prototyping first, are designed specifically with this hardware in mind without compromising the scientific question.
+
+## AI Apendix
+Claude Sonnet 4.6 was used to understand the HMM framework and the pseudocode drafting process
