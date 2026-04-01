@@ -103,3 +103,6 @@ The original plan anticipated needing to truncate TCGA barcodes to 12 characters
 - Implement stratified 5-fold cross-validation for logistic regression, random forest, and a small neural network
 - Compare macro F1 scores across configurations to evaluate whether regulatory and domain features add value beyond RNA alone
 - Validate the HMM by checking that patients with higher frac_active scores tend to have higher overall gene expression
+
+## AI Appendix
+Claude Sonnet 4.6 was used as an aid to conceptually understand how Viterbi, Posterier decoding, and Baum-Welch worked together.
