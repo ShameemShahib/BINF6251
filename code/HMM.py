@@ -7,7 +7,7 @@ def baum_welch(sequences):
     means = np.array([0.1, 0.8])
 
     for _ in range(20):
-        T_acc    = np.zeros((2, 2))
+        T_acc = np.zeros((2, 2))
         mean_num = np.zeros(2)
         mean_den = np.zeros(2)
 
@@ -31,7 +31,7 @@ def baum_welch(sequences):
             state_probs = state_probs / state_probs.sum(axis=1, keepdims=True)
 
             # accumulate
-            T_acc    += forward_prob[:-1].T @ (backward_prob[1:] * norm.pdf(obs[1:, None], means, 0.1))
+            T_acc += forward_prob[:-1].T @ (backward_prob[1:] * norm.pdf(obs[1:, None], means, 0.1))
             mean_num += (state_probs * obs[:, None]).sum(axis=0)
             mean_den += state_probs.sum(axis=0)
 
@@ -43,16 +43,16 @@ def baum_welch(sequences):
 
 
 def viterbi(obs, T_mat, means):
-    best_scores  = np.log(norm.pdf(obs[0], means, 0.1))
-    log_T        = np.log(T_mat)
+    best_scores = np.log(norm.pdf(obs[0], means, 0.1))
+    log_T = np.log(T_mat)
     traceback  = np.zeros((len(obs), 2), dtype=int)
 
     for t in range(1, len(obs)):
         candidate_scores = best_scores + log_T.T
-        traceback[t]     = candidate_scores.argmax(axis=1)
-        best_scores      = candidate_scores.max(axis=1) + np.log(norm.pdf(obs[t], means, 0.1))
+        traceback[t] = candidate_scores.argmax(axis=1)
+        best_scores = candidate_scores.max(axis=1) + np.log(norm.pdf(obs[t], means, 0.1))
 
-    state_sequence     = np.zeros(len(obs), dtype=int)
+    state_sequence = np.zeros(len(obs), dtype=int)
     state_sequence[-1] = best_scores.argmax()
     for t in range(len(obs) - 2, -1, -1):
         state_sequence[t] = traceback[t+1, state_sequence[t+1]]
