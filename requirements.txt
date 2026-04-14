@@ -1,3 +1,9 @@
 numpy
 pandas
 scipy
+torch
+scikit-learn
+pyhmmer
+biopython
+requests
+matplotlib
