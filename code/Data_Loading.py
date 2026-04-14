@@ -6,12 +6,14 @@ rna_url = "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.BRCA.s
 methyl_url = "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.BRCA.sampleMap%2FHumanMethylation450.gz"
 mutation_url = "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/mc3%2FBRCA_mc3.txt.gz"
 clin_annotation_url = "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.BRCA.sampleMap%2FBRCA_clinicalMatrix"
+methyl_annot_url = 'https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/probeMap%2FilluminaMethyl450_hg19_GPL16304_TCGAlegacy'
 
 # Load the rna, methylation, mutation, and clinical annotation data
 rna = pd.read_csv(rna_url, sep='\t', index_col=0, compression='gzip')
 methyl = pd.read_csv(methyl_url, sep='\t', index_col=0, compression='gzip')
 mutation = pd.read_csv(mutation_url, sep='\t', compression='gzip')
 clin_annotation = pd.read_csv(clin_annotation_url, sep='\t', index_col=0)
+methyl_annot = pd.read_csv(methyl_annot_url, sep='\t', index_col=0)
 
 # find patients with PAM50 labels(cancer subtypes) and ignore the rest
 PAM_50 = clin_annotation['PAM50Call_RNAseq'].dropna()
@@ -32,3 +34,4 @@ rna.to_csv('Data/RNAseq.tsv', sep='\t')
 methyl.to_csv('Data/methyl.tsv', sep='\t')
 mutation.to_csv('Data/mutation.tsv', sep='\t', index=False)
 clin_annotation.to_csv('Data/clinicalMatrix.tsv', sep='\t')
+methyl_annot.to_csv('Data/methyl_annotation.tsv', sep='\t')
