@@ -1,6 +1,3 @@
-# BINF6251
-Project for BINF6251 - Lab for Algorithms
-
 # Multi-Omics Breast Cancer Subtype Classification
 
 ## Project Overview
