@@ -8,7 +8,7 @@ This project investigates whether adding biological context improves subtype pre
 
 Multi-omics approaches are increasingly common in cancer research. Many methods combine raw data types and allow models to learn patterns automatically. While effective, this can make it difficult to understand what each data type contributes.
 
-#### Question:
+#### Question
 
 **If we give the model information about gene regulation and protein function, does it predict the cancer subtype better than using RNA data alone?**
 
