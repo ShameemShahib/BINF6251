@@ -63,7 +63,15 @@ Step 2: Generate domain disruption features using the profile HMM
 - The output should be a file named domain_features.tsv in the Data directory
 
 Step 3: Train the classifier and review results
-- The output will be printed and include a results table
+- The output will be printed and include a results table (snippet of my output is below)
+
+```
+=== Improvement over RNA-only baseline ===
+rna_only: F1=0.765 (±0.036) | improvement=+0.000
+rna_hmm: F1=0.768 (±0.044) | improvement=+0.003
+rna_domain: F1=0.760 (±0.025) | improvement=-0.005
+full: F1=0.769 (±0.036) | improvement=+0.003
+```
 
 ---
 
