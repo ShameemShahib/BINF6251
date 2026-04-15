@@ -37,6 +37,7 @@ This project implements three algorithms from scratch or near-scratch:
 ---
 
 ## Installation and Setup
+(Heads up, this is a very RAM-intensive workflow and the data files are over 2GB)
 
 ### Requirements
 - Python 3.10 or higher
